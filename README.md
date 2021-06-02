@@ -16,35 +16,26 @@
 
 ---
 
-MMF is a modular framework for vision and language multimodal research from Facebook AI Research. MMF contains reference implementations of state-of-the-art vision and language models and has powered multiple research projects at Facebook AI Research. See full list of project inside or built on MMF [here](https://mmf.sh/docs/notes/projects).
+## This is a fork of [Facebook's MMF framework](https://github.com/facebookresearch/mmf).
 
-MMF is powered by PyTorch, allows distributed training and is un-opinionated, scalable and fast. Use MMF to **_bootstrap_** for your next vision and language multimodal research project by following the [installation instructions](https://mmf.sh/docs/getting_started/installation). Take a look at list of MMF features [here](https://mmf.sh/docs/getting_started/features).
+## Running the code
 
-MMF also acts as **starter codebase** for challenges around vision and
-language datasets (The Hateful Memes, TextVQA, TextCaps and VQA challenges). MMF was formerly known as Pythia. The next video shows an overview of how datasets and models work inside MMF. Checkout MMF's [video overview](https://mmf.sh/docs/getting_started/video_overview).
+#### !!! Please make sure that CUDA 10.2+ is installed on you machine.
+#### !!! Linux OS is recommended, otherwise you would face installation problems.
+#### !!! We are using the open source Multimodal Framework developed by FacebookResearch: https://mmf.sh/
 
+### Follow these steps to get all the code ready and running:
+1. Prerequisites - generating image caption features for VisualBERT and ViLBERT:
+    1. Install MMF according to the instructions here: https://mmf.readthedocs.io/en/website/notes/installation.html
+    2. Install the following packages: `pip install yacs, opencv-python, cython` (if using 'pip', any package manager works)
+    3. Clone vqa-maskrcnn-benchmark repository: https://gitlab.com/vedanuj/vqa-maskrcnn-benchmark
+        1. Run `python setup.py build`
+        2. Run `python setup.py develop`
+        3. Run the feature extraction script from the following path: 'mmf/tools/scripts/features/extract_features_vmb.py'
+        4. After feature extraction is done convert the features to a .mdb file with the following script: 'mmf/tools/scripts/features/extract_features_vmb.py'
+        5. Rename the .mdb features file to 'deceptron.lmdb' and move it to '/root/.cache/torch/mmf/data/datasets/propaganda/defaults/features/'
+2. Running the models - open **'Propaganda_Detection.ipynb'** and **run** the code inside.
 
-## Installation
-
-Follow installation instructions in the [documentation](https://mmf.sh/docs/getting_started/installation).
-
-## Documentation
-
-Learn more about MMF [here](https://mmf.sh/docs).
-
-## Citation
-
-If you use MMF in your work or use any models published in MMF, please cite:
-
-```bibtex
-@misc{singh2020mmf,
-  author =       {Singh, Amanpreet and Goswami, Vedanuj and Natarajan, Vivek and Jiang, Yu and Chen, Xinlei and Shah, Meet and
-                 Rohrbach, Marcus and Batra, Dhruv and Parikh, Devi},
-  title =        {MMF: A multimodal framework for vision and language research},
-  howpublished = {\url{https://github.com/facebookresearch/mmf}},
-  year =         {2020}
-}
-```
 
 ## License
 
