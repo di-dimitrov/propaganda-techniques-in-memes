@@ -20,7 +20,7 @@
 
 ## Data
 The data is located in the `/data/.` directory. 
-The path to the labels is: `./data/datasets/propaganda/defaults/annotations/` and to the images: `data/datasets/propaganda/defaults/images/`
+The path to the labels is: `./data/datasets/propaganda/defaults/annotations/` and to the images: `./data/datasets/propaganda/defaults/images/`
 
 ## Running the code
 
