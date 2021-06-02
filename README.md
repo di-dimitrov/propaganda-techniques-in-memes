@@ -1,7 +1,12 @@
+## Dataset and code for the paper Detecting Propaganda Techniques in Memes
+
+### Abstract
+Propaganda can be defined as a form of communication that aims to influence the opinions or the actions of people towards a specific goal; this is achieved by means of well-defined rhetorical and psychological devices. Propaganda, in the form we know it today, can be dated back to the beginning of the 17th century. However, it is with the advent of the Internet and the social media that propaganda has started to spread on a much larger scale than before, thus becoming major societal and political issue. Nowadays, a large fraction of propaganda in social media is multimodal, mixing textual with visual content. With this in mind, here we propose a new multi-label multimodal task: detecting the type of propaganda techniques used in memes. We further create and release a new corpus of 950 memes, carefully annotated with 22 propaganda techniques, which can appear in the text, in the image, or in both. Our analysis of the corpus shows that understanding both modalities together is essential for detecting these techniques. This is further confirmed in our experiments with several state-of-the-art multimodal models. 
+
+---
 
 ## This is a fork of [Facebook's MMF framework](https://github.com/facebookresearch/mmf).
 
----
 ## Data
 The data is located in the `/data/.` directory. 
 The path to the labels is: `./data/datasets/propaganda/defaults/annotations/` and to the images: `./data/datasets/propaganda/defaults/images/`
