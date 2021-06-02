@@ -1,0 +1,16 @@
+includes:
+- ./text.yaml
+- configs/datasets/propaganda/bert.yaml
+- configs/models/unimodal/bert.yaml
+
+model_config:
+  unimodal_text:
+    num_labels: 22
+    classifier:
+      type: mlp
+      params:
+        in_dim: 768
+        num_layers: 2
+
+training:
+  batch_size: 32

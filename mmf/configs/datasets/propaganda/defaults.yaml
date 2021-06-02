@@ -1,0 +1,77 @@
+dataset_config:
+  propaganda:
+    data_dir: ${env.data_dir}/datasets
+    depth_first: false
+    fast_read: false
+    use_images: true
+    use_features: false
+    images:
+      train:
+      - propaganda/defaults/images/
+      test:
+      - propaganda/defaults/images/
+      val:
+      - propaganda/defaults/images/
+    features:
+      train:
+      - propaganda/defaults/features/detectron.lmdb
+      test:
+      - propaganda/defaults/features/detectron.lmdb
+      val: 
+      - propaganda/defaults/features/detectron.lmdb
+    annotations:
+      train:
+      - propaganda/defaults/annotations/train.jsonl
+      test:
+      - propaganda/defaults/annotations/test.jsonl
+      val:
+      - propaganda/defaults/annotations/val.jsonl
+    max_features: 100
+    processors:
+      text_processor:
+        type: vocab
+        params:
+          max_length: 14
+          vocab:
+            type: intersected
+            embedding_name: glove.6B.300d
+            vocab_file: propaganda/defaults/extras/vocabs/vocabulary_100k.txt
+          preprocessor:
+            type: simple_sentence
+            params: {}
+      #text_processor:
+      #  type: bert_tokenizer
+      #  params:
+      #    tokenizer_config:
+      #      type: bert-base-uncased
+      #      params:
+      #        do_lower_case: true
+      #    mask_probability: 0
+      #    max_seq_length: 128
+      bbox_processor:
+        type: bbox
+        params:
+          max_length: 50
+      #transformer_bbox_processor:
+      #  type: transformer_bbox
+      #  params:
+      #    bbox_key: bbox
+      #    image_width_key: image_width
+      #    image_height_key: image_height
+      image_processor:
+        type: torchvision_transforms
+        params:
+          transforms:
+            - type: Resize
+              params:
+                size: [256, 256]
+            - type: CenterCrop
+              params:
+                size: [224, 224]
+            - ToTensor
+            - GrayScaleTo3Channels
+            - type: Normalize
+              params:
+                mean: [0.46777044, 0.44531429, 0.40661017]
+                std: [0.12221994, 0.12145835, 0.14380469]
+    return_features_info: false

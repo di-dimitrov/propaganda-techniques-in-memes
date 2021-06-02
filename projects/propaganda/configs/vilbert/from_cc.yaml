@@ -1,0 +1,7 @@
+includes:
+- ./defaults.yaml
+- configs/datasets/propaganda/with_features.yaml
+
+checkpoint:
+  resume_pretrained: true
+  resume_zoo: vilbert.pretrained.cc.original

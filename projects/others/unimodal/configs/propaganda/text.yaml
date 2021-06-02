@@ -1,0 +1,40 @@
+model_config:
+  unimodal_text:
+    num_labels: 22
+    classifier:
+      type: mlp
+      params:
+        num_layers: 2
+        out_dim: 22
+    losses:
+    - type: logit_bce
+
+scheduler:
+  type: warmup_linear
+  params:
+    num_warmup_steps: 2000
+    num_training_steps: ${training.max_updates}
+
+optimizer:
+  type: adam_w
+  params:
+    lr: 5e-5
+    eps: 1e-8
+
+evaluation:
+  metrics:
+  - multilabel_micro_f1
+  - multilabel_macro_f1
+
+training:
+  batch_size: 32
+  lr_scheduler: true
+  evaluation_interval: 400
+  max_updates: 900
+  early_stop:
+    criteria: propaganda/multilabel_micro_f1
+    minimize: false
+
+checkpoint:
+  pretrained_state_mapping:
+    base: base

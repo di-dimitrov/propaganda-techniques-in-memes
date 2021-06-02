@@ -1,0 +1,4 @@
+dataset_config:
+  propaganda:
+    use_images: false
+    use_features: true

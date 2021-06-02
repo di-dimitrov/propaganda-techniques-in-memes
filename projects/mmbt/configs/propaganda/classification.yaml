@@ -1,0 +1,6 @@
+model_config:
+  mmbt:
+    training_head_type: classification
+    num_labels: 22
+    losses:
+    - type: logit_bce
