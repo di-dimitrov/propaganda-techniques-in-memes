@@ -18,6 +18,10 @@
 
 ## This is a fork of [Facebook's MMF framework](https://github.com/facebookresearch/mmf).
 
+## Data
+The data is located in the `/data/.` directory. 
+The path to the labels is: `./data/datasets/propaganda/defaults/annotations/` and to the images: `data/datasets/propaganda/defaults/images/`
+
 ## Running the code
 
 #### !!! Please make sure that CUDA 10.2+ is installed on you machine.
