@@ -25,7 +25,7 @@ The path to the labels is: `./data/datasets/propaganda/defaults/annotations/` an
         1. Run `python setup.py build`
         2. Run `python setup.py develop`
         3. Run the feature extraction script from the following path: `mmf/tools/scripts/features/extract_features_vmb.py`
-        4. After feature extraction is done convert the features to a .mdb file with the following script: `mmf/tools/scripts/features/extract_features_vmb.py`
+        4. After feature extraction is done convert the features to a .mdb file with the following script: `mmf/tools/scripts/features/lmdb_conversion.py`
         5. Rename the `.mdb` features file to `deceptron.lmdb` and move it to `/root/.cache/torch/mmf/data/datasets/propaganda/defaults/features/`
 2. Running the models - open **'Propaganda_Detection.ipynb'** and **run** the code inside.
 
