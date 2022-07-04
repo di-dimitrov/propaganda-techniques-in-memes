@@ -67,6 +67,12 @@ class PropagandaTask3FeaturesDataset(MMFDataset):
 
         if "batch_2" in sample_info['id']:
             id = int(sample_info['id'].split("_batch_2")[0]) + 2000
+        elif "bg_mk_memes" in sample_info['id']:
+            id = int(sample_info['id'].split("bg_mk_memes_")[1]) + 3000
+        elif "bg_memes_" in sample_info['id']:
+            id = int(sample_info['id'].split("bg_memes_")[1]) + 4000
+        elif "mk_memes_" in sample_info['id']:
+            id = int(sample_info['id'].split("mk_memes_")[1]) + 5000
         else:
             id = int(sample_info['id'])
         current_sample.id = torch.tensor(id, dtype=torch.int)
